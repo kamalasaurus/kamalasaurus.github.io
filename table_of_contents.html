@@ -1,0 +1,16 @@
+---
+layout: page
+title: Table Of Contents
+permalink: /toc/
+---
+
+<div class="toc">
+
+  <div class="toc-post">
+    {% for post in site.posts %}
+      <div class="toc-post-date">{{ post.date }}</div>
+      <a class="toc-post-link" href="{{ post.url }}">{{ post.title }}</a>
+    {% endfor %}
+  </div>
+
+</div>
