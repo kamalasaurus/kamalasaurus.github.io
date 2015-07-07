@@ -1,4 +1,8 @@
-<header class="site-header">
+{% if page.layout == 'default' %}
+  <header class="site-header home">
+{% else %}
+  <header class="site-header">
+{% endif %}
 
   <div class="wrapper">
 
