@@ -11,18 +11,13 @@ To elaborate on the title, the latter definition of regret is more the sentiment
 Time is ever fleeting!
 
 
-```
-                __
 
+                __
 
                / _)
 
-
         .-^^^-/ /
-
 
      __/ Kamal /
 
-     
     <__.|_|-|_|
-```
