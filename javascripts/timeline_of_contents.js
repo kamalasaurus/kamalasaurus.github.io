@@ -1,5 +1,9 @@
 window.onload = initialize;
 
 function initialize() {
-  console.log('hello');
+  window.REQUEST.get('data/blob.json', printer);
+}
+
+function printer(data) {
+  console.log(data);
 }
