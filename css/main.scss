@@ -44,12 +44,12 @@ $on-laptop:        800px;
 
 @font-face {
     font-family: 'PressStart';
-    src: url('prstartk-webfont.eot');
-    src: url('prstartk-webfont.eot?#iefix') format('embedded-opentype'),
-         url('prstartk-webfont.woff2') format('woff2'),
-         url('prstartk-webfont.woff') format('woff'),
-         url('prstartk-webfont.ttf') format('truetype'),
-         url('prstartk-webfont.svg#press_start_kregular') format('svg');
+    src: url('fonts/prstartk-webfont.eot');
+    src: url('fonts/prstartk-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/prstartk-webfont.woff2') format('woff2'),
+         url('fonts/prstartk-webfont.woff') format('woff'),
+         url('fonts/prstartk-webfont.ttf') format('truetype'),
+         url('fonts/prstartk-webfont.svg#press_start_kregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
