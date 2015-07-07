@@ -86,6 +86,13 @@
     }
 }
 
+/**
+ * Site toc
+ */
+.site-toc {
+    position: absolute;
+    left: 5px;
+}
 
 
 /**
@@ -162,6 +169,7 @@
  * Page content
  */
 .page-content {
+    position: relative;
     padding: $spacing-unit 0;
 }
 
