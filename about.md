@@ -13,11 +13,7 @@ Time is ever fleeting!
 
 
                 __
-
                / _)
-
         .-^^^-/ /
-
      __/ Kamal /
-
     <__.|_|-|_|
