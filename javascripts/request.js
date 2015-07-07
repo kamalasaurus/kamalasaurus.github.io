@@ -16,8 +16,6 @@ window.REQUEST = {
   get: function(path, callback, isNative) {
     var route = isNative ? this.url(path) : path;
 
-    console.log(route);
-
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType('application/json');
     xobj.open('GET', route, true);
