@@ -1,6 +1,6 @@
 window.DINO = {
 
-  MAXLENGTH: 96,
+  MAXLENGTH: 80,
 
   rightWardDino: '            __ \n           / _)\n    .-^^^-/ /  \n __/ Kamal /   \n<__.|_|-|_|    ',
   leftWardDino: ' __            \n(_ \\           \n  \\ \\-^^^-.    \n   \\ Kamal \\__ \n    |_|-|_|.__>',
