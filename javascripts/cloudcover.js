@@ -24,7 +24,7 @@ window.CLOUDCOVER = {
 
     this.context.clearRect(0, 0, this.width, this.height);
 
-    var removeIndeces = [];
+    var removeIndices = [];
 
     var that = this;
     this.clouds.forEach(function(cloud) {
@@ -34,7 +34,7 @@ window.CLOUDCOVER = {
       that.context.drawImage(that.cloud, cloud.x, cloud.y);
     });
 
-    removeIndeces.forEach(function(idx) {
+    removeIndices.forEach(function(idx) {
       that.clouds.splice(idx, 1);
     });
   },
