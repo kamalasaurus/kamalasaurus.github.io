@@ -10,6 +10,7 @@ window.CLOUDCOVER = {
   clouds: [],
 
   timer: null,
+  waitForNext: false,
 
   animateClouds: function() {
     this.clouds.forEach(function(cloud) {
@@ -39,7 +40,9 @@ window.CLOUDCOVER = {
   },
 
   cloudFactory: function() {
-    if (Math.random() > 0.96) {
+    if (Math.random() > 0.96 && !this.waitForNext) {
+      this.waitForNext = true;
+
       var x = this.width;
       var y = Math.floor(
                 Math.random() * this.height
@@ -47,7 +50,13 @@ window.CLOUDCOVER = {
 
       var cloud = new window.CLOUD(x, y);
       this.clouds.push(cloud);
+
+      window.setTimeout(this.debounceCloud.bind(this), 1000);
     }
+  },
+
+  debounceCloud: function() {
+    this.waitForNext = false;
   },
 
   initialize: function() {
