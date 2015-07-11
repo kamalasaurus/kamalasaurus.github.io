@@ -127,7 +127,9 @@ blockquote {
  */
 pre,
 code {
+    font-family: 'Inconsolata';
     font-size: 15px;
+    line-height: 16px;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
     background-color: #eef;
