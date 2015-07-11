@@ -16,10 +16,14 @@ $spacing-unit:     30px;
 $text-color:       #111;
 $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
+$heading-color:    #888888;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
+
+$beige-border:     #F0E9D2;
+$beige-background: #fff8ee;
 
 // Width of the content area
 $content-width:    800px;
@@ -29,6 +33,7 @@ $on-laptop:        800px;
 
 $header-color:     #eeeeee;
 $title-color:      #c1492a;
+$title-font:       'PressStart';
 
 
 // Using media queries with like this:
@@ -61,5 +66,6 @@ $title-color:      #c1492a;
 @import
         "base",
         "layout",
-        "syntax-highlighting"
+        "syntax-highlighting",
+        "header-canvas"
 ;
