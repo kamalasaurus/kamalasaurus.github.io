@@ -115,6 +115,10 @@ a.url {
     display: block;
 }
 
+rect {
+    cursor: pointer;
+}
+
 rect.selected {
     stroke: #333333;
 }

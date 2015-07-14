@@ -129,10 +129,13 @@ pre,
 code {
     font-family: $base-font-size;
     font-size: 15px;
-    line-height: 16px;
     border: 1px solid $beige-border;
     border-radius: 3px;
     background-color: $beige-background;
+}
+
+.dino {
+    line-height: 16px;
 }
 
 code {
