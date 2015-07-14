@@ -23,8 +23,9 @@ window.ANALEMMA = {
   },
 
   daysSinceNewYears: function(date) {
-    var newYears = new Date(String(date.getFullYear()));
-    return Math.floor(date - newYears) / (1000*60*60*24);
+    var newDate = new Date(date);
+    var newYears = new Date(newDate.getFullYear());
+    return Math.floor(newDate - newYears) / (1000*60*60*24);
   },
 
   declinationInRadians: function(day) {
@@ -73,36 +74,37 @@ window.ANALEMMA = {
       .slice
       .call(new Uint8ClampedArray(365));
 
-    var that = this;
-
     return baseLineCoords
       .map(function(day, i) {
         return i;
       })
       .map(function(day) {
         return {
-          elevation: that.elevationInRadians(day),
-          eot: that.equationOfTime(day)
+          elevation: this.elevationInRadians(day),
+          eot: this.equationOfTime(day)
         }
-      });
+      }.bind(this));
   },
 
-  placePost: function() {
-    var date = new Date('2015');
+  placePosts: function(posts) {
 
-    var day = this.daysSinceNewYears(date);
-    var eot = this.equationOfTime(day);
-    var ele = this.elevationInRadians(day);
+    return posts.map(function(post) {
+      var day = this.daysSinceNewYears(post.date);
+      var eot = this.equationOfTime(day);
+      var ele = this.elevationInRadians(day);
 
-    return {
-      elevation: ele,
-      eot: eot,
-      date: date,
-      title: 'Welcome to Hell'
-    }
+      return {
+        elevation: ele,
+        eot: eot,
+        date: post.date,
+        title: post.title,
+        url: post.url
+      }
+    }.bind(this));
+
   },
 
-  generate: function() {
+  generate: function(postsByYear) {
     var baseLineCoords = this.drawBaseLine();
 
     var elevations = baseLineCoords
@@ -135,22 +137,26 @@ window.ANALEMMA = {
         return Math.max(a,b);
       });
 
-    return new window.ANALEMMAGraph({
-      eleRange: [minele, maxele],
-      eotRange: [mineot, maxeot],
-      coords: baseLineCoords
-    }, [this.placePost()]);
+    Object.keys(postsByYear).forEach(function(year) {
 
+      var posts = postsByYear[year];
+      new window.ANALEMMAGraph({
+        eleRange: [minele, maxele],
+        eotRange: [mineot, maxeot],
+        coords: baseLineCoords
+      }, this.placePosts(posts), year);
+
+    }.bind(this));
   }
 }
 
-window.ANALEMMAGraph = function(baseline, posts) {
-
-  var that = this;
+window.ANALEMMAGraph = function(baseline, posts, year) {
 
   this.eleRange = baseline.eleRange;
   this.eotRange = baseline.eotRange;
   this.coords = baseline.coords;
+
+  this.title = String(year);
 
   this.width = 400;
   this.height = 800;
@@ -164,15 +170,21 @@ window.ANALEMMAGraph = function(baseline, posts) {
     .range([1, this.height]);
 
   this.line = d3.svg.line()
-    .x(function(d) { return that.xScale(d.eot); })
-    .y(function(d) { return that.yScale(d.elevation); })
+    .x(function(d) { return this.xScale(d.eot); }.bind(this))
+    .y(function(d) { return this.yScale(d.elevation); }.bind(this))
     .interpolate('basis-closed');
 
-  //invert height and width for rotation
-  this.svg = d3.select('.page-content .wrapper')
+  this.container = document.createElement('div');
+  this.container.setAttribute('class', 'analemma-container year-' + this.title + '-container');
+  this.container.innerHTML = '<div class="year-title">' + this.title + '</div>' + '<div class="analemma-text graph-' + this.title + '-text"></div>';
+
+  document.querySelector('.page-content .wrapper').appendChild(this.container);
+
+  this.svg = d3.select('.year-' + this.title + '-container')
     .append('svg')
     .attr('width', String(this.height + 1) + 'px')
     .attr('height', String(this.width + 1) + 'px');
+    //invert height and width for rotation
 
   this.path = this.svg.append('path')
     .attr('d', this.line(this.coords))
@@ -181,22 +193,38 @@ window.ANALEMMAGraph = function(baseline, posts) {
     .attr('fill', 'none')
     .attr('transform', 'rotate(-90) translate(-' + String(this.width + 1) + ', 0)');
 
-
   this.posts = this.svg.selectAll('rect')
       .data(posts)
     .enter()
       .append('rect')
         .attr('height', 15)
         .attr('width', 15)
-        .attr('x', function(post) { return that.xScale(post.eot) - 7.5})
-        .attr('y', function(post) { return that.yScale(post.elevation) - 7.5})
+        .attr('x', function(post) { return this.xScale(post.eot) - 7.5}.bind(this))
+        .attr('y', function(post) { return this.yScale(post.elevation) - 7.5}.bind(this))
         .attr('transform', 'rotate(-90) translate(-' + String(this.width + 1) + ', 0)')
         .attr('fill', '#cccccc')
         .on('mouseover', function(post) {
-          console.log(post.title);
+          var year = (new Date(post.date)).getFullYear()
+          var title = '.graph-' + year + '-text';
+          var target = document.querySelector(title);
+
+          var selected = document.querySelector('.selected')
+          if (selected) {
+            selected.setAttribute('class', '');
+          }
+
+          target.innerHTML = '<div class="date">' +
+                              String(post.date) +
+                              '</div><a href="' +
+                              post.url +
+                              '"class="url">' +
+                              post.title +
+                              '</a>'
+
+          this.setAttribute('class', 'selected');
         })
-        .on('mouseout' , function(post){
-          console.log(post.title);
+        .on('click' , function(post){
+          window.location = post.url;
         });
 
 };

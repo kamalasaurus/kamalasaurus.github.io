@@ -97,6 +97,27 @@
  * Site toc
  */
 
+.data {
+    display: none;
+}
+
+.analemma-container {
+    position: relative;
+}
+
+.analemma-text {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+a.url {
+    display: block;
+}
+
+rect.selected {
+    stroke: #333333;
+}
 
 /**
  * Site footer

@@ -10,18 +10,15 @@ custom_js:
 
 <div class="toc">
 
-  <div class="years">
+  <div class="data toc-posts">
+    [
     {% for post in site.posts %}
-      {{ post.date | date: "%Y" }}
+      { "date": "{{ post.date }}", "title": "{{post.title}}", "url": "{{post.url}}" }
+      {% if forloop.last != true %}
+      ,
+      {% endif %}
     {% endfor %}
-
-  </div>
-
-  <div class="toc-post">
-    {% for post in site.posts %}
-      <div class="toc-post-date">{{ post.date }}</div>
-      <a class="toc-post-link" href="{{ post.url }}">{{ post.title }}</a>
-    {% endfor %}
+    ]
   </div>
 
 </div>

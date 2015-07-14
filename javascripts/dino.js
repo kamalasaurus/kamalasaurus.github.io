@@ -17,14 +17,13 @@ window.DINO = {
       this.initializeDino();
     }
 
-    var that = this;
     var dino = this.currentDino
       .split('\n')
       .map(function(line) {
         var newLine = ' ' + line;
-        that.lineLength = newLine.length;
+        this.lineLength = newLine.length;
         return newLine;
-      })
+      }.bind(this))
       .join('\n');
 
     this.currentDino = dino;
@@ -35,14 +34,13 @@ window.DINO = {
       this.turnaroundDino();
     }
 
-    that = this;
     var dino = this.currentDino
       .split('\n')
       .map(function(line) {
         var newLine = line.substring(1);
-        that.lineLength = newLine.length;
+        this.lineLength = newLine.length;
         return newLine;
-      })
+      }.bind(this))
       .join('\n');
 
     this.currentDino = dino;

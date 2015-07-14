@@ -26,17 +26,16 @@ window.CLOUDCOVER = {
 
     var removeIndices = [];
 
-    var that = this;
     this.clouds.forEach(function(cloud) {
-      if (cloud.x < -that.cloud.clientWidth) {
-        removeIndex = that.clouds.indexOf(cloud);
+      if (cloud.x < -this.cloud.clientWidth) {
+        removeIndex = this.clouds.indexOf(cloud);
       }
-      that.context.drawImage(that.cloud, cloud.x, cloud.y);
-    });
+      this.context.drawImage(this.cloud, cloud.x, cloud.y);
+    }.bind(this));
 
     removeIndices.forEach(function(idx) {
-      that.clouds.splice(idx, 1);
-    });
+      this.clouds.splice(idx, 1);
+    }.bind(this));
   },
 
   cloudFactory: function() {
