@@ -10,6 +10,13 @@ custom_js:
 
 <div class="toc">
 
+  <div class="years">
+    {% for post in site.posts %}
+      {{ post.date | date: "%Y" }}
+    {% endfor %}
+
+  </div>
+
   <div class="toc-post">
     {% for post in site.posts %}
       <div class="toc-post-date">{{ post.date }}</div>
