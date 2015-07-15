@@ -15,7 +15,7 @@ It's interesting how completely the web aesthetic has cycled.  Everyone who reme
 
 Heiroglyphics... in animated form...
 
-<div class="gif">
+<div class="media-embed">
 <iframe src="//giphy.com/embed/jb2YzqYSELm5G" width="480" height="364" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 </div>
 
@@ -23,15 +23,19 @@ Heiroglyphics... in animated form...
 
 And ridicule!
 
+<div class="media-embed">
+<iframe src="//giphy.com/embed/3i7zenReaUuI0" width="480" height="480" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div>
+
 ...cause now when we make fun of someone, we make them make fun of themselves!  Like some kind of macabre dancing puppet.
 
-Cue [facebook][facebook].  Wasn't their whole spiel stating they were more respectable ergo less of a glitter bomb than MySpace?
+Cue [facebook][facebook].  Wasn't their whole spiel stating they were more respectable, ergo less of a glitter bomb, than MySpace?
 
 ¯\\\_(ツ)\_/¯
 
 Everyone wants a language to call their own, ya know?
 
-<div class="video">
+<div class="media-embed">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x5aWfkm-h6A" frameborder="0" allowfullscreen></iframe>
 </div>
 
