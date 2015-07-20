@@ -79,7 +79,7 @@ export function getData(id) {
 }
 {% endhighlight %}
 
-Notice how `resolve` is `(data)=> { return data; }`?  `then` defines the arguments for the anonymous function inside the `Promise`. In this case, it will fire once the http response ends, because  `resolve` is called inside the `end` event of the callback.  `then` is also the hook that interfaces with the `yield` and `await` keywords––allowing you to call ES5 apis with fancy-schmancy ES6 hawtness.
+Notice how `resolve` is `(data)=> { return data; }`?  `then` defines the arguments for the anonymous function inside the `Promise`. In this case, it will fire once the http response ends, because  `resolve` is called inside the `end` event of the callback.  `then` is also the hook that interfaces with the `yield` and `await` keywords––allowing you to call ES5 apis within fancy-schmancy ES6 control-flow hawtness.
 
 `Promises`.  Oh yeah.
 
