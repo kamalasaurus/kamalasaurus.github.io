@@ -228,7 +228,20 @@ rect.selected {
     font-size: 24px;
 }
 
+.post-categories {
+    display: block;
+}
 
+.post-category {
+    display: inline-block;
+    background-color: lighten(steelblue, 35%);
+    border: solid 1px lighten(steelblue, 25%);
+    border-radius: 2px;
+    padding: 0 3px;
+    font-size: 13px;
+    line-height: 1.23em;
+    height: 1.23em;
+}
 
 /**
  * Posts
