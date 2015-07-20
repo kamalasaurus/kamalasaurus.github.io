@@ -26,7 +26,7 @@ function* makeSandwich() {
 
 See that `yield` keyword in the function body?  And the `*` adjacent to the function declaration?  The `*` signifies "generator", which means it can use that `yield` keyword.  It makes sure you don't eat a non-existent sandwich by making the function wait for the return value.
 
-All `yield` means is "come back to this point whenever you're done doing whatever long-duration thing you're supposed to do asynchronously and then continue executing this function body."  Without the magic `yield` you'd have to nest everything into a [pyramid of doom], or, if given the option, run it synchronously––which will block your thread and kill your performance.
+All `yield` means is "come back to this point whenever you're done doing whatever long-duration thing you're supposed to do asynchronously and then continue executing this function body."  Without the magic `yield` you'd have to nest everything into a [pyramid of doom][doom], or, if given the option, run it synchronously––which will block your thread and kill your performance.
 
 Generators are generalized (harhar) for aribitrary code-blocks; in ES7, the expectation will be that asynchronous requests should be handled by C#-style `async/await` functions, ergo:
 
@@ -89,4 +89,4 @@ The caveat being a `Promise` is only yieldable *IF* you `return` out of all of i
 <iframe width="420" height="315" src="https://www.youtube.com/embed/rSH3NWks7m4" frameborder="0" allowfullscreen></iframe>
 </div> 
 
-[pyramid of doom]: http://callbackhell.com/
+[doom]: http://callbackhell.com/
