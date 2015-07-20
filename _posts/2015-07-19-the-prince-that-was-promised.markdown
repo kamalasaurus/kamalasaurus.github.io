@@ -51,7 +51,7 @@ Why clarifying javascript control-flow, of course!
 
 The thing is, how do you use these newer, better ways of managing control flow in your application, like in `koa-router`, when all of the `node-core` modules are still callback-centric?  Callbacks aren't yieldable, ya know?
 
-You gotta wrap it in a `Promise`!  Which is kind of ugly-looking, honestly.  The snippet below can be modified to Promisify any callback you see fit.  The secret sauce is the arguments in the `then` block:
+You gotta wrap it in a `Promise`!  Which is kind of ugly-looking, honestly.  The snippet below can be modified to Promisify any callback you see fit.  The secret sauce is the arguments in the `then` invocation:
 
 {% highlight javascript %}
 import http from 'http';
