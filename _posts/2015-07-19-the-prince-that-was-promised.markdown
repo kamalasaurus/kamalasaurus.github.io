@@ -11,7 +11,7 @@ Oh GRRM, you are too cruel.
 
 ...as a grisly prelude to what will be a longer series on full-stack ES6 with `babel-node`, `iojs`, `koa`, `jspm`, and `react` (oh my), I've noticed a marked lack of treatment on one of the new features in Javascript/ES6/ES2015/whatever they call it:  `Promises`.
 
-`Promises` are terrible.  `Promises` are great!  `Promises`... honestly seem to be an interim feature to help interface legacy ES5 patterns with ES6's new generator `*functions` and eventually ES7's `async/await` functions.
+`Promises` are terrible.  `Promises` are great!  `Promises`... honestly seem like an interim feature to help interface legacy ES5 patterns with ES6's new generator `*functions` and eventually ES7's `async/await` functions.
 
 That was quite a mouthful!  Generators and `async/await` are both implementations of the yieldable pattern.  As a brief example:
 
@@ -66,7 +66,7 @@ export function getData(id) {
   return new Promise((resolve, reject)=> {
     return http.get(`${URL}${id}`, (resp, err)=> {
       err ? reject(err) : void(0);
-      var dat = ''
+      var dat = '';
       resp.on('data', (chunk)=> { dat += chunk; });
       resp.on('end', ()=> { resolve(JSON.parse(dat)); });
     });
