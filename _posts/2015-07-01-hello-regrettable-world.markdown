@@ -11,7 +11,7 @@ function regret() {
 }
 {% endhighlight %}
 
-It's interesting how completely the web aesthetic has cycled.  Everyone who remembers AngelFire and GeoCities probably remembers... a world of regret.  Animated GIFs and streaming MIDI!  Sores upon the eyes and ears!  A black hole of information transmission!  A curse upon the beholder!  Now, in our post celery-waved, chip-tuned, and tumblrd world––lo-fidelity computer graphics appear to have resurrected our most primitive languages.
+It's interesting how completely the web aesthetic has cycled.  Everyone who remembers AngelFire and GeoCities probably remembers... a world of regret.  Animated GIFs and streaming MIDI!  Sores upon the ears and eyes!  A black hole of information transmission!  A curse upon the beholder!  Now, in our post celery-waved, chip-tuned, and tumblrd world––lo-fidelity computer graphics appear to have resurrected our most primitive languages.
 
 Heiroglyphics... in animated form...
 

@@ -2,7 +2,7 @@
 layout: post
 title: The [Callback] That Was Promised
 date: 2015-07-19 21:56:23 -0700
-categories: ES6
+categories: javascript
 ---
 
 Oh GRRM, you are too cruel.

@@ -2,7 +2,7 @@
 layout: post
 title: The Annual Analemma
 date: 2015-07-13 20:41:54 -0700
-categories: SVG
+categories: svg
 post_js:
 - element/analemma
 - post/post2
@@ -27,10 +27,13 @@ Is it more apparent than a straight line?  No.  But it's a lot less boring :D  J
 
 If you check out the [Timeline Of Contents][toc], you'll see what I mean.  Since each point along the analemma corresponds to an amount of time traversed since New Year's Day, you can map an event to the line!
 
+For a much more informed reading, check out <a href='javascript:void(0)' onclick='window.download("tsy.pdf")'>this guy</a>.  And maybe look for math regarding lemniscates.
 
-For a much more informed reading, check out <a href='javascript:void(0)' onclick='window.download("tsy.pdf")'>this guy</a>.
+For a less informed application, check out the [git repo][git] I set up for the Timeline Of Contents widget.  It's not self-executing, but it should operate in a pretty stand-alone fashion from any other front-end things you have going on.
 
-For a less informed application, check out the [git repo][git] I set up for the Timeline of Contents widget.  It's not self-executing, but it should operate in a pretty stand-alone fashion from any other front-end things you have going on.
+<div class="media-embed">
+<iframe width="420" height="315" src="https://www.youtube.com/embed/pF_IbikJ7uY" frameborder="0" allowfullscreen></iframe>
+</div>
 
 [dictionary]: http://dictionary.reference.com/browse/analemma
 [toc]: /toc
