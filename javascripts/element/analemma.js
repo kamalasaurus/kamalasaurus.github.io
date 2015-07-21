@@ -104,7 +104,7 @@ window.ANALEMMA = {
 
   },
 
-  generate: function(postsByYear) {
+  generate: function(postsByYear, targetContainer) {
     var baseLineCoords = this.drawBaseLine();
 
     var elevations = baseLineCoords
@@ -141,16 +141,22 @@ window.ANALEMMA = {
 
       var posts = postsByYear[year];
       new window.ANALEMMAGraph({
-        eleRange: [minele, maxele],
-        eotRange: [mineot, maxeot],
-        coords: baseLineCoords
-      }, this.placePosts(posts), year);
+          eleRange: [minele, maxele],
+          eotRange: [mineot, maxeot],
+          coords: baseLineCoords
+        },
+        this.placePosts(posts),
+        year,
+        targetContainer
+      );
 
     }.bind(this));
   }
 }
 
-window.ANALEMMAGraph = function(baseline, posts, year) {
+window.ANALEMMAGraph = function(baseline, posts, year, targetContainer) {
+
+  this.targetContainer = document.querySelector(targetContainer);
 
   this.eleRange = baseline.eleRange;
   this.eotRange = baseline.eotRange;
@@ -158,8 +164,11 @@ window.ANALEMMAGraph = function(baseline, posts, year) {
 
   this.title = String(year);
 
-  this.width = 400;
+  // this.height = +this.targetContainer.offsetWidth;
+  // this.width = this.height / 2;
+
   this.height = 800;
+  this.width = 400;  
 
   this.xScale = d3.scale.linear()
     .domain(this.eotRange)
@@ -178,7 +187,7 @@ window.ANALEMMAGraph = function(baseline, posts, year) {
   this.container.setAttribute('class', 'analemma-container year-' + this.title + '-container');
   this.container.innerHTML = '<div class="year-title">' + this.title + '</div>' + '<div class="analemma-text graph-' + this.title + '-text"></div>';
 
-  document.querySelector('.page-content .wrapper').appendChild(this.container);
+  this.targetContainer.appendChild(this.container);
 
   this.svg = d3.select('.year-' + this.title + '-container')
     .append('svg')

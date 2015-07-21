@@ -5,7 +5,7 @@ function initialize() {
   window.CLOUDCOVER.initialize();
 
   var postsByYear = groupByYears(posts());
-  window.ANALEMMA.generate(postsByYear);
+  window.ANALEMMA.generate(postsByYear, '.page-content .wrapper');
   // window.REQUEST.get('data/blob.json', printer, true);
 }
 
