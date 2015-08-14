@@ -47,7 +47,7 @@ But hell is scary!  ...and exhausting.  If given the option, why not make for mi
 </svg>
 </div>
 
-Doesn't that sound nice?  As the diagram shows, the secret is to not use the vast majority of `Git`.  For starters, add this to your `~/.gitconfig` :
+Doesn't that sound nice?  As the diagram implies, the secret is to not use the vast majority of `Git`.  For starters, add this to your `~/.gitconfig` :
 
 <pre>
   [color]
@@ -80,7 +80,7 @@ Another helpful tip: before your rebase master into your feature branch, squash 
 
 In your text editor, change all the `pick`s into `s`s except for the ones you want to exist atomically in name.  An atomic commit is one that you could potentially revert together or `cherry-pick` individually.  You can also reorder commits and squash them into atomic units at this point.
 
-In short, I present the following precepts for the foundation of the state of Git Switzerland:
+In short, I present the following precepts for the predication of the state of Git Switzerland:
 
 1. Don't comment code, delete it
 2. Don't merge, only rebase
