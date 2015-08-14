@@ -28,5 +28,5 @@ function groupByYears(posts) {
 }
 
 function getYear(date) {
-  return (new Date(date)).getFullYear();
+  return isNaN((new Date(date)).getFullYear()) ? (new Date(date.substring(0,10))).getFullYear() : (new Date(date)).getFullYear();
 }

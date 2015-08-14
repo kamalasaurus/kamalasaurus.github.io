@@ -23,7 +23,7 @@ window.ANALEMMA = {
   },
 
   daysSinceNewYears: function(date) {
-    var newDate = new Date(date);
+    var newDate = isNaN((new Date(date)).getTime()) ? new Date(date.substring(0,10)) : new Date(date);
     var newYears = new Date(newDate.getFullYear());
     return Math.floor(newDate - newYears) / (1000*60*60*24);
   },
@@ -213,7 +213,7 @@ window.ANALEMMAGraph = function(baseline, posts, year, targetContainer) {
         .attr('transform', 'rotate(-90) translate(-' + String(this.width + 1) + ', 0)')
         .attr('fill', '#cccccc')
         .on('mouseover', function(post) {
-          var year = (new Date(post.date)).getFullYear()
+          var year = isNaN((new Date(post.date)).getFullYear()) ? (new Date(post.date.substring(0,10))).getFullYear() : (new Date(post.date)).getFullYear();
           var title = '.graph-' + year + '-text';
           var target = document.querySelector(title);
 
