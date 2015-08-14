@@ -66,24 +66,44 @@ Next, but perhaps most importantly <b>never</b> `merge`!  Only `rebase`!  This w
   git rebase master
   git checkout master
   git rebase <feature-branch>
+  git push origin master
 {% endhighlight %}
 
 It seems a little circular, but it forces your changes to be applied after all current commits on master.
 
-In your wrath, you might find yourself declaiming Biblical testament upon your detractors.
+Another helpful tip: before your rebase master into your feature branch, squash your feature branch down to atomic commits.  That way, you only have to deal with conflicts once:
 
->14 Be ye not unequally yoked together with unbelievers: for what fellowship hath righteousness with unrighteousness? and what communion hath light with darkness?<br>
->–2 Corinthians 6:14
-  
+{% highlight bash %}
+  #while in feature branch
+  git rebase -i <last commit hash on master>
+{% endhighlight %}
+
+In your text editor, change all the `pick`s into `s`s except for the ones you want to exist atomically in name.  An atomic commit is one that you could potentially revert together or `cherry-pick` individually.  You can also reorder commits and squash them into atomic units at this point.
+
+In short, I present the following precepts for the foundation of the state of Git Switzerland:
 
 1. Don't comment code, delete it
 2. Don't merge, only rebase
 3. Squash feature-branch commits into atomic commits
-4. Name-space your feature branches with '/'
+4. Name-space your feature branches with '/', i.e. `git checkout -b kamalasaurus/feature-branch`; this keeps you from having to compete for branch names with your coworkers
 5. Never perform destructive changes to <b>master</b> (force, reset, squash)
 6. Delete dead and committed branches immediately
 
-If you stray from the narrow path, I have an unfortunate bit of  news to deliver:
+Meaning your `git` existence will be forevermore defined by:
+
+{% highlight bash %}
+  git checkout -b <feature-branch>
+  #while in feature branch
+  git rebase -i <last commit hash on master>
+  git rebase master
+  git checkout master
+  git rebase <feature-branch>
+  git push origin master
+  git branch -d <feature-branch>
+  git push origin :<feature-branch>
+{% endhighlight %}
+
+If you or your coworkers stray from the narrow path, I have an unfortunate bit of news to deliver:
 
 You're already in git hell.  You just haven't realized it.
 
