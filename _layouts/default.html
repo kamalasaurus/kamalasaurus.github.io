@@ -7,6 +7,12 @@
 
     {% include header.html %}
 
+    {% if page.url =='/index.html' %}
+      <div class="instructions">
+        Move with arrow keys: &uarr;, &darr;, &larr;, &rarr;
+      </div>
+    {% endif %}
+
     <div class="page-content">
       <div class="wrapper">
         {{ content }}
@@ -14,6 +20,16 @@
     </div>
 
     {% include footer.html %}
+
+    {% if page.url == '/index.html' %}
+      <script src='/javascripts/web-adventures/build.js' type='text/javascript'></script>
+      <script>
+        document.addEventListener('keydown', function(e) {
+          !!~[38, 40].indexOf(+e.keyCode) ? e.preventDefault() : void(0);
+        });
+        document.getElementById('app').focus();
+      </script>
+    {% endif %}
 
   </body>
 

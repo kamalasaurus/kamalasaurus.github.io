@@ -1,9 +1,8 @@
 # Site settings
-title: Kamal's Javascript Regrets
+title: Javascriptrix
 email: kamalasaurus@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  regret (n.) – 1. pain or distress in the mind at something done or left undone.
-  Kamal has many regrets. Mostly Javascript related.
+  Sometimes it helps to write things down.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: kamalasaurus
